@@ -27,7 +27,7 @@ function GetSvg(svgText) {
             cloneNode.style.transfromOrigin =  '50% 50%';
             const div = document.createElement('div');
             div.appendChild(cloneNode);
-            window.UpdateSvg(div.innerHTML);
+            window.webkit.messageHandlers.UpdateSvg.postMessage(div.innerHTML);
         })
     });
 
@@ -63,7 +63,7 @@ function GetSvg(svgText) {
             swipeDistance = {x: swipeDistance.x + deltaX, y: swipeDistance.y + deltaY};
             deltaX = 0;
             deltaY = 0;
-            svg.style.transformOrigin = `${w / 2 - swipeDistance.x * zoomRatio}px ${h / 2 - swipeDistance.y * zoomRatio}px`;
+            svg.style.transformOrigin = `${w / 2 - swipeDistance.x }px ${h / 2 - swipeDistance.y}px`;
             // svg.style.transform = `matrix(${zoomRatio}, 0, 0, ${zoomRatio}, ${swipeDistance.x}, ${swipeDistance.y})`;
             // svg.style.transformOrigin = `50% 50%`;
 
@@ -181,4 +181,4 @@ function GetSvg(svgText) {
 
 window.GetSvg = GetSvg;
 
-GetSvg(svgText);
+GetSvg(svgText)
