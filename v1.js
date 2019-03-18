@@ -49,6 +49,7 @@ function GetSvg(svgText) {
             zoomDistance = getDistance(p1, p2);
             // $('#touch').innerHTML = zoomDistance;
             isDouble = true;
+            svg.style.transformOrigin = `${w / 2 - swipeDistance.x }px ${h / 2 - swipeDistance.y}px`;
         }
 
         if (e.touches.length === 1) {
@@ -63,7 +64,7 @@ function GetSvg(svgText) {
             swipeDistance = {x: swipeDistance.x + deltaX, y: swipeDistance.y + deltaY};
             deltaX = 0;
             deltaY = 0;
-            svg.style.transformOrigin = `${w / 2 - swipeDistance.x }px ${h / 2 - swipeDistance.y}px`;
+            // svg.style.transformOrigin = `${w / 2 - swipeDistance.x }px ${h / 2 - swipeDistance.y}px`;
             // svg.style.transform = `matrix(${zoomRatio}, 0, 0, ${zoomRatio}, ${swipeDistance.x}, ${swipeDistance.y})`;
             // svg.style.transformOrigin = `50% 50%`;
 
@@ -145,9 +146,10 @@ function GetSvg(svgText) {
         if (e.touches.length >= 2 && isDouble) {
             const [p1, p2] = e.touches;
             const dis = getDistance(p1, p2);
+            $('#touch').innerHTML = `zoom ${zoomRatio}`
             if (dis - zoomDistance < 0) {
                 if (zoomRatio <= 0.8) return;
-                zoomRatio = zoomRatio < 1 ? zoomRatio - 0.05 : zoomRatio  - 0.08;    
+                zoomRatio = zoomRatio < 1 ? zoomRatio - 0.01 : zoomRatio  - 0.08;    
                 // zoomRatio -= 0.08;        
             } else {
                 zoomRatio += 0.03;

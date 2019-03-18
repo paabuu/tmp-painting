@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no， initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>colour</title>
     <style>
@@ -12,9 +12,6 @@
         }
         html, body {
             overflow: hidden;
-            width: 100vw;
-            height: 100vh;
-            background-color: #ccc;
         }
         #container {
             position: relative;
@@ -33,21 +30,12 @@
         }
     </style>
     <script src="./svg.js"></script>
-    <script src="./tarot.js"></script>
-    <script>
-        var img = new Image();
-        img.src = './white.svg';
-        img.onload = function() {
-            console.log(img.width, img.height);
-        }
-    </script>
 </head>
 <body>
     <div id="container">
     
     </div>
 <p id="touch"></p>
-<script src="./hammer.js"></script>
-<script src="./v2.js"></script>
+<script src="./v1.js"></script>
 </body>
 </html>
