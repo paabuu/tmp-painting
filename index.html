@@ -31,21 +31,21 @@
         svg path {
             -webkit-tap-highlight-color:transparent;
         }
+
+        .color {
+            width: 50px;
+            float: left;
+            margin: 20px;
+        }
     </style>
     <script src="./svg.js"></script>
     <script src="./tarot.js"></script>
-    <script>
-        var img = new Image();
-        img.src = './white.svg';
-        img.onload = function() {
-            console.log(img.width, img.height);
-        }
-    </script>
 </head>
 <body>
     <div id="container">
     
     </div>
+    <div class="colors"></div>
 <p id="touch"></p>
 <script src="./hammer.js"></script>
 <script src="./v2.js"></script>
