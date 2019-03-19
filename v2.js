@@ -8,7 +8,7 @@ function GetSvg(svgText) {
     const width = +svg.getAttribute('width').replace('px', '');
     const height = +svg.getAttribute('height').replace('px', '');
     const clientWidth = document.body.clientWidth;
-    const ratio = width / clientWidth * 2;
+    const ratio = width / clientWidth;
     const w = clientWidth;
     const h = height / ratio;
 
@@ -17,8 +17,6 @@ function GetSvg(svgText) {
     svg.setAttribute('width', w);
     svg.setAttribute('height', h);
     svg.style.display = 'block';
-
-    $('#touch').innerHTML = '11'
 
     $$('svg path').forEach(p => {
         p.addEventListener('click', () => {
@@ -37,7 +35,7 @@ function GetSvg(svgText) {
 
     /**
      * @param {scale}: 缩放比例
-     * @param {pan}
+     * @param {pan} ????????
      */
 
     let scale = 1;
@@ -237,4 +235,4 @@ function getDistance(p1, p2) {
 
 window.GetSvg = GetSvg;
 
-GetSvg(tarot);
+GetSvg(svgText);
