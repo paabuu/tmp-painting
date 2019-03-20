@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no， initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>colour</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        html, body {
+            overflow: hidden;
+            width: 100vw;
+            /* height: 100vh; */
+            background-color: #ccc;
+        }
+        #container {
+            position: relative;
+            background-color: orange;
+            overflow: hidden;
+            box-sizing: border-box;
+            width: 100%;
+        }
+        svg {
+            display: none;
+            margin: 0 auto;
+        }
+        svg path {
+            -webkit-tap-highlight-color:transparent;
+            transition: fill .4s ease-in-out; 
+        }
+
+        .color {
+            width: 50px;
+            float: left;
+            margin: 20px;
+        }
+    </style>
+    <script src="./svg.js"></script>
+    <script src="./tarot.js"></script>
+</head>
+<body>
+    <div id="container">
+    
+    </div>
+    <div class="colors"></div>
+<p id="touch"></p>
+<script src="./hammer.js"></script>
+<script src="./v2.js"></script>
+</body>
+</html>
