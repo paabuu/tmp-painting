@@ -7,7 +7,9 @@
 function Render(svgText, colors, cardName) {
     $('#container').empty().append($(svgText));
     $('.header').html(cardName);
+    var svgRatio = $('#container svg').width() / $('#container svg').height();
     var h = $('#container').height() * 0.8;
+    var w = h * svgRatio;
     var color = 'white';
     var progress = {};
     var HIGHLIGHT_COLOR = '#b2b2b2';
@@ -35,7 +37,6 @@ function Render(svgText, colors, cardName) {
                 $('.brush-' + color.slice(1)).addClass('brush-finished');
                 $('.brush-' + color.slice(1)).find('.check').attr({ fill: '#ffffff'});
                 $('.brush-' + color.slice(1)).find('.border').attr({ stroke: 'none'});
-
             }
 
             // 100%完成
@@ -277,9 +278,9 @@ function Render(svgText, colors, cardName) {
                 var classname = '.brush-' + c;
                 $(classname).find('.border').attr({ stroke: 'none' });
                 $(classname).find('.check').attr({ fill: '#ffffff' });
+                $(classname).addClass('brush-finished');
             }
         });
-        
     }
 }
 
@@ -305,3 +306,9 @@ window.onload = function() {
         event.preventDefault();
     });
 };
+
+// Render(
+//     window.localStorage.getItem('svg'),
+//     ["c7a480", "7b5733", "ebcc9e", "8b8f78", "bbc8b5", "cf8f57", "fef6e3", "be5937", "4d3116", "cec26d", "a8b5a0", "b18967", "c4b99d", "927f6f", "706a4c", "ddc58a", "b77044", "a3917d", "d6d5c1", "b4a38f"],
+//     'The Fool'
+// )
