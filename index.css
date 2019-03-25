@@ -9,37 +9,57 @@ html, body {
     height: 100vh;
     font-size: 14px;
 }
+
+.header {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+    height: 10vh;
+    line-height: 10vh;
+    color: #000;
+    font-size: 22px;
+    font-weight: bold;
+    text-align: center;
+    font-family: DroidSerif-Bold;
+    border-bottom: 1px solid #eee;
+    box-sizing: border-box;
+}
+
 #container {
-    position: absolute;
-    top: 40%;
-    left: 50%;
+    position: relative;
 
     width: 100%;
-    transform: translate(-50%, -50%);
+    height: 76vh;
     overflow: hidden;
     box-sizing: border-box;
-
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-svg {
-    margin: 0 auto;
+#container svg {
     display: block;
+    /* transform: translate(-50%, -50%); */
 }
-svg path {
+#container svg path {
     -webkit-tap-highlight-color:transparent;
     transition: fill .4s ease-in-out; 
 }
 
 .brushes-container {
-    position: fixed;
+    /* position: fixed;
     left: 0;
-    bottom: -1vh;
+    bottom: -1vh; */
     width: 100%;
     height: 14vh;
     overflow-x: scroll;
     overflow-y: hidden;
     -webkit-overflow-scrolling: touch;
-    padding: 1vh;
+    padding-bottom: 1vh;
+    margin-bottom: -1vh;
     /* background-color: red; */
+    box-shadow: 0 -6px 10px 0 rgba(79,79,79,0.06);
+    z-index: 100;
+    background-color: #fff;
 }
 
 .brushes {
@@ -47,19 +67,30 @@ svg path {
     height: 10vh;
     padding-right: 2vh;
 }
+
 .brush {
     display: inline-block;
-    width: 8vh;
-    height: 8vh;
-    line-height: 8vh;
+    width: 10vh;
+    height: 10vh;
+    line-height: 10vh;
     border-radius: 50%;
-    margin: 1vh 0 0 2vh;
+    margin: 2vh 0 0 2vh;
     float: left;
     text-align: center;
     -webkit-tap-highlight-color:transparent;
     border: 2px solid transparent;
     box-sizing: border-box;
 }
+
+.brush svg {
+    width: 100%;
+    height: 100%;
+}
+
+/* .brush path {
+    stroke: orange;
+    stroke-width: 5px;
+} */
 
 .brush-selected {
     transition: all .2s ease-in-out;
