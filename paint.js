@@ -244,7 +244,7 @@ function Render(svgText, colors) {
             ele.addEventListener('click', function() {
                 if(c !== color.slice(1)) {
                     try {
-                        window.webkit.messageHandlers.ProgressUpdate.ChangePencil('#' + c);
+                        window.webkit.messageHandlers.ChangePencil.postMessage('#' + c);
                     } catch(e) {
                         console.log(e);
                     }
@@ -305,8 +305,8 @@ window.onload = function() {
     });
 };
 
-Render(
-    window.localStorage.getItem('svg'),
-    ["c7a480", "7b5733", "ebcc9e", "8b8f78", "bbc8b5", "cf8f57", "fef6e3", "be5937", "4d3116", "cec26d", "a8b5a0", "b18967", "c4b99d", "927f6f", "706a4c", "ddc58a", "b77044", "a3917d", "d6d5c1", "b4a38f"],
-    'The Fool'
-)
+// Render(
+//     window.localStorage.getItem('svg'),
+//     ["c7a480", "7b5733", "ebcc9e", "8b8f78", "bbc8b5", "cf8f57", "fef6e3", "be5937", "4d3116", "cec26d", "a8b5a0", "b18967", "c4b99d", "927f6f", "706a4c", "ddc58a", "b77044", "a3917d", "d6d5c1", "b4a38f"],
+//     'The Fool'
+// )
