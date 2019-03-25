@@ -2,14 +2,12 @@
  * 
  * @param {string} svgText svg xml内容
  * @param {object} colors 色块数据
+ * @param {string} cardName 卡牌名
  */
-function render(svgText, colors, cardName) {
+function Render(svgText, colors, cardName) {
     $('#container').empty().append($(svgText));
     $('.header').html(cardName);
-    var clientHeight = document.body.clientHeight;
-    var svgRatio = $('#container svg').width() / $('#container svg').height();
     var h = $('#container').height() * 0.8;
-    var w = h * svgRatio;
     var color = 'white';
     var progress = {};
     var HIGHLIGHT_COLOR = '#b2b2b2';
@@ -61,7 +59,6 @@ function render(svgText, colors, cardName) {
             });
             var div = document.createElement('div');
             $(div).append(clone);
-            window.localStorage.setItem('svg', $(div).html());
             try {
                 window.webkit.messageHandlers.UpdateSvg.postMessage($(div).html());
             } catch (e) {
@@ -210,6 +207,8 @@ function render(svgText, colors, cardName) {
             origin = { x: w / 2, y: h / 2 };
             point = { x: w /2, y: h / 2 };
         }
+
+        return 1;
     }
 
     function renderBrush(colors) {
@@ -283,12 +282,6 @@ function render(svgText, colors, cardName) {
         
     }
 }
-
-const COLORS = ["c7a480", "7b5733", "ebcc9e", "8b8f78", "bbc8b5", "cf8f57", "fef6e3", "be5937", "4d3116", "cec26d", "a8b5a0", "b18967", "c4b99d", "927f6f", "706a4c", "ddc58a", "b77044", "a3917d", "d6d5c1", "b4a38f"];
-
-var buffer = window.localStorage.getItem('svg');
-
-render(buffer || tarot, COLORS, "The Fool");
 
 // 阻止页面全局放大
 window.onload = function() {
