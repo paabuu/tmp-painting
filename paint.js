@@ -34,14 +34,15 @@ function render(svgText, colors, cardName) {
 
             // 单个颜色完成
             if(selectedColor.now >= selectedColor.all) {
-                // $('.brush-' + color.slice(1)).addClass('brush-finished');
+                $('.brush-' + color.slice(1)).addClass('brush-finished');
                 $('.brush-' + color.slice(1)).find('.check').attr({ fill: '#ffffff'});
                 $('.brush-' + color.slice(1)).find('.border').attr({ stroke: 'none'});
 
             }
-
+            console.log($('.brush-finished').length, colors.length);
             // 100%完成
             if($('.brush-finished').length === colors.length) {
+                alert('done');
                 try {
                     window.webkit.messageHandlers.PaintDone.postMessage();
                 } catch (e) {
@@ -266,6 +267,7 @@ function render(svgText, colors, cardName) {
                 $('.border').attr({ stroke: 'none' });
 
                 if(colorProgress.now === colorProgress.all) return;
+
                 $(this).find('.border').attr({
                     stroke: color
                 });
@@ -278,6 +280,7 @@ function render(svgText, colors, cardName) {
                 var classname = '.brush-' + c;
                 $(classname).find('.border').attr({ stroke: 'none' });
                 $(classname).find('.check').attr({ fill: '#ffffff' });
+                $(classname).addClass('brush-finished');
             }
         });
         
