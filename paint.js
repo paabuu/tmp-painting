@@ -32,7 +32,7 @@ function Render(svgText, colors, cardName) {
 
             // 单个颜色完成
             if(selectedColor.now >= selectedColor.all) {
-                // $('.brush-' + color.slice(1)).addClass('brush-finished');
+                $('.brush-' + color.slice(1)).addClass('brush-finished');
                 $('.brush-' + color.slice(1)).find('.check').attr({ fill: '#ffffff'});
                 $('.brush-' + color.slice(1)).find('.border').attr({ stroke: 'none'});
 
