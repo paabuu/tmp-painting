@@ -2,11 +2,9 @@
  * 
  * @param {string} svgText svg xml内容
  * @param {object} colors 色块数据
- * @param {string} cardName 卡牌名
  */
-function Render(svgText, colors, cardName) {
+function Render(svgText, colors) {
     $('#container').empty().append($(svgText));
-    $('.header').html(cardName);
     var svgRatio = $('#container svg').width() / $('#container svg').height();
     var h = $('#container').height() * 0.8;
     var w = h * svgRatio;
@@ -307,8 +305,8 @@ window.onload = function() {
     });
 };
 
-// Render(
-//     window.localStorage.getItem('svg'),
-//     ["c7a480", "7b5733", "ebcc9e", "8b8f78", "bbc8b5", "cf8f57", "fef6e3", "be5937", "4d3116", "cec26d", "a8b5a0", "b18967", "c4b99d", "927f6f", "706a4c", "ddc58a", "b77044", "a3917d", "d6d5c1", "b4a38f"],
-//     'The Fool'
-// )
+Render(
+    window.localStorage.getItem('svg'),
+    ["c7a480", "7b5733", "ebcc9e", "8b8f78", "bbc8b5", "cf8f57", "fef6e3", "be5937", "4d3116", "cec26d", "a8b5a0", "b18967", "c4b99d", "927f6f", "706a4c", "ddc58a", "b77044", "a3917d", "d6d5c1", "b4a38f"],
+    'The Fool'
+)
