@@ -5,7 +5,7 @@
  */
 function Render(svgText, c) {
     $('#container').empty().append($(svgText));
-    var svgRatio = $('#container svg').width() / $('#container svg').height();
+    var svgRatio = 87 / 150;
     var h = $('#container').height() * 0.8;
     var w = h * svgRatio;
     var color = 'white';
