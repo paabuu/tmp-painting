@@ -213,7 +213,8 @@ function Render(svgText, c) {
     }
 
     function renderBrush(colors) {
-        const BRUSH_SVG = '' +
+        $('.brushes').empty();
+        var BRUSH_SVG = '' +
         '<svg width="117px" height="118px" viewBox="0 0 117 118" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">' +
             '<g id="页面-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">' +
                 '<g id="Me-Save-Copy-2" transform="translate(-302.000000, -1029.000000)">' +
