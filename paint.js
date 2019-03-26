@@ -1,9 +1,9 @@
 /**
  * 
  * @param {string} svgText svg xml内容
- * @param {object} colors 色块数据
+ * @param {object} c 色块数据
  */
-function Render(svgText, colors) {
+function Render(svgText, c) {
     $('#container').empty().append($(svgText));
     var svgRatio = $('#container svg').width() / $('#container svg').height();
     var h = $('#container').height() * 0.8;
@@ -11,7 +11,7 @@ function Render(svgText, colors) {
     var color = 'white';
     var progress = {};
     var HIGHLIGHT_COLOR = '#b2b2b2';
-
+    var colors = c.map(item => item.toLowerCase());
     // 计算色块总数及每个色块已涂完的数量
     colors.forEach(function(c) {
         var all = $('.color-' + c).length;
@@ -306,8 +306,8 @@ window.onload = function() {
     });
 };
 
-// Render(
-//     window.localStorage.getItem('svg'),
-//     ["c7a480", "7b5733", "ebcc9e", "8b8f78", "bbc8b5", "cf8f57", "fef6e3", "be5937", "4d3116", "cec26d", "a8b5a0", "b18967", "c4b99d", "927f6f", "706a4c", "ddc58a", "b77044", "a3917d", "d6d5c1", "b4a38f"],
-//     'The Fool'
-// )
+Render(
+    window.localStorage.getItem('svg'),
+    ["C7a480", "7B5733", "ebcC9e", "8B8f78", "Bbc8b5", "cf8f57", "fef6e3", "be5937", "4d3116", "cec26d", "a8b5a0", "b18967", "c4b99d", "927f6f", "706a4c", "ddc58a", "b77044", "a3917d", "d6d5c1", "b4a38f"],
+    'The Fool'
+)
