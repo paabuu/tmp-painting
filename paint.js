@@ -37,6 +37,11 @@ function Render(svgText, c) {
                 $('.brush-' + color.slice(1)).addClass('brush-finished');
                 $('.brush-' + color.slice(1)).find('.check').attr({ fill: '#ffffff'});
                 $('.brush-' + color.slice(1)).find('.border').attr({ stroke: 'none'});
+                try {
+                    window.webkit.messageHandlers.ColorDone.postMessage();
+                } catch (e) {
+                    console.log(e);
+                }
             }
 
             // 100%完成
