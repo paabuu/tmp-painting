@@ -10,7 +10,7 @@ function Render(svgText, c) {
     var w = h * svgRatio;
     var color = 'white';
     var progress = {};
-    var HIGHLIGHT_COLOR = '#b2b2b2';
+    var HIGHLIGHT_COLOR = '#BFBFBF';
     var colors = c.map(item => item.toLowerCase());
     // 计算色块总数及每个色块已涂完的数量
     colors.forEach(function(c) {
