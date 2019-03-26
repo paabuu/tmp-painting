@@ -104,8 +104,8 @@ function Render(svgText, c) {
 
     // 拖动事件
     mc.on('panmove', function(e) {
-        const { x, y } = pan;
-        const { deltaX, deltaY } = e;
+        var { x, y } = pan;
+        var { deltaX, deltaY } = e;
         dx = x + deltaX;
         dy = y + deltaY;
 
@@ -145,7 +145,7 @@ function Render(svgText, c) {
     mc.on('pinchstart', function(e) {
         // 原点在contianer的位置
         try {
-            const {x, y} = e.center;
+            var {x, y} = e.center;
             origin.x += (Math.abs(dx) + x - point.x) / scale;
             origin.y += (Math.abs(dy) + y - point.y) / scale;
             point.x = x;
@@ -182,7 +182,7 @@ function Render(svgText, c) {
 
     function boundsCheck() {
         // 根据对称中心计算左右边界
-        const range = {
+        var range = {
             left: w * (scale - 1) * origin.x / w,
             right: w * (scale - 1) * (1 - origin.x / w),
             top: h * (scale - 1) * origin.y / h,
@@ -241,7 +241,7 @@ function Render(svgText, c) {
         var width = colors.length * 12 + 2; 
         $('.brushes').css('width', width + 'vh');
         colors.forEach(function(c) {
-            const ele = document.createElement('div');
+            var ele = document.createElement('div');
             ele.innerHTML = BRUSH_SVG;
             ele.setAttribute('class', 'brush ' + 'brush-' + c);
             $(ele).find('.oval').attr('fill', '#' + c);
