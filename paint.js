@@ -7,6 +7,13 @@ function render(svgText, colors, cardName) {
     $('#container').empty().append($(svgText));
     $('.header').html(cardName);
     var clientHeight = document.body.clientHeight;
+    var img = new Image();
+    img.src = './white-18.svg';
+    img.onload = function() {
+        console.log(img.width);
+        console.log(img.height)
+    }
+    console.log($('#container svg').width(), $('#container svg').height());
     var svgRatio = $('#container svg').width() / $('#container svg').height();
     var h = $('#container').height() * 0.8;
     var w = h * svgRatio;
