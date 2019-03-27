@@ -10,7 +10,7 @@ function Render(svgText, c) {
     var w = h * svgRatio;
     var color = 'white';
     var progress = {};
-    var HIGHLIGHT_COLOR = '#BFBFBF';
+    var HIGHLIGHT_COLOR = '#7B7B7B';
     var colors = c.map(item => item.toLowerCase());
     // 计算色块总数及每个色块已涂完的数量
     colors.forEach(function(c) {
@@ -288,12 +288,10 @@ function Render(svgText, c) {
             }
         });
 
+        // 设置默认颜色，为左起第一个未涂完的颜色
         var defaultColor = colors.find(c => progress[c].now < progress[c].all);
         var defaultColorIndex = colors.indexOf(defaultColor);
-        console.log(defaultColorIndex);
-        console.log(defaultColor);
         $('.brush-' + defaultColor).click();
-        console.log(12 * defaultColorIndex + 'vh');
         var scrollLeft = $('body').height() * 12 / 100 * defaultColorIndex;
         $('.brushes-container').scrollLeft(scrollLeft);
     }
@@ -322,8 +320,8 @@ window.onload = function() {
     });
 };
 
-Render(
-    window.localStorage.getItem('svg'),
-    ["C7a480", "7B5733", "ebcC9e", "8B8f78", "Bbc8b5", "cf8f57", "fef6e3", "be5937", "4d3116", "cec26d", "a8b5a0", "b18967", "c4b99d", "927f6f", "706a4c", "ddc58a", "b77044", "a3917d", "d6d5c1", "b4a38f"],
-    'The Fool'
-)
+// Render(
+//     window.localStorage.getItem('svg'),
+//     ["C7a480", "7B5733", "ebcC9e", "8B8f78", "Bbc8b5", "cf8f57", "fef6e3", "be5937", "4d3116", "cec26d", "a8b5a0", "b18967", "c4b99d", "927f6f", "706a4c", "ddc58a", "b77044", "a3917d", "d6d5c1", "b4a38f"],
+//     'The Fool'
+// )
