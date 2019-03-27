@@ -294,7 +294,8 @@ function Render(svgText, c) {
         console.log(defaultColor);
         $('.brush-' + defaultColor).click();
         console.log(12 * defaultColorIndex + 'vh');
-        $('.brush').scrollLeft(12 * defaultColorIndex + 'vh');
+        var scrollLeft = $('body').height() * 12 / 100 * defaultColorIndex;
+        $('.brushes-container').scrollLeft(scrollLeft);
     }
 }
 
