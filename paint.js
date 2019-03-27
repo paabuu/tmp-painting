@@ -38,7 +38,7 @@ function Render(svgText, c) {
                 $('.brush-' + color.slice(1)).find('.check').attr({ fill: '#ffffff'});
                 $('.brush-' + color.slice(1)).find('.border').attr({ stroke: 'none'});
                 try {
-                    window.webkit.messageHandlers.ColorDone.postMessage();
+                    window.webkit.messageHandlers.ColorDone.postMessage('');
                 } catch (e) {
                     console.log(e);
                 }
@@ -47,7 +47,7 @@ function Render(svgText, c) {
             // 100%完成
             if($('.brush-finished').length === colors.length) {
                 try {
-                    window.webkit.messageHandlers.PaintDone.postMessage();
+                    window.webkit.messageHandlers.PaintDone.postMessage('');
                 } catch (e) {
                     console.log(e);
                 }
@@ -63,6 +63,7 @@ function Render(svgText, c) {
                     $(this).attr('fill', 'white');
                 }
             });
+            clone.removeAttribute('height');
             var div = document.createElement('div');
             $(div).append(clone);
             try {
@@ -251,7 +252,7 @@ function Render(svgText, c) {
             ele.addEventListener('click', function() {
                 if(c !== color.slice(1)) {
                     try {
-                        window.webkit.messageHandlers.ChangePencil.postMessage('#' + c);
+                        window.webkit.messageHandlers.ChangeColor.postMessage('#' + c);
                     } catch(e) {
                         console.log(e);
                     }
