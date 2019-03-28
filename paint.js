@@ -77,12 +77,12 @@ function Render(svgText, c) {
     renderBrush(colors);
 
     /**
-     * @var {number}: scale 缩放比例
-     * @var {object}: pan 总偏移距离
-     * @var {number}: dx x方向每次划动的距离
-     * @var {number}: dy y方向每次划动的距离
-     * @var {object}: origin 对称中心的坐标
-     * @var {object}: point 缩放时的中心坐标
+     * @var {number} scale 缩放比例
+     * @var {object} pan 总偏移距离
+     * @var {number} dx x方向每次划动的距离
+     * @var {number} dy y方向每次划动的距离
+     * @var {object} origin 对称中心的坐标(相对于svg)
+     * @var {object} point 缩放时的中心坐标(相对于屏幕)
      */
 
     var scale = 1;
