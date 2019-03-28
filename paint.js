@@ -5,6 +5,10 @@
  */
 function Render(svgText, c) {
     $('#container').empty().append($(svgText));
+    // 点击颜色显示色值的隐藏提示
+    var counting = false;
+    var clickCount = 0;
+
     var svgRatio = 87 / 150;
     var h = $('#container').height() * 0.8;
     var w = h * svgRatio;
@@ -253,10 +257,17 @@ function Render(svgText, c) {
                 if(c !== color.slice(1)) {
                     try {
                         window.webkit.messageHandlers.ChangeColor.postMessage('#' + c);
+                        clickCount = 0;
+                        setTimeout(function() {
+                            if (clickCount > 10 && color === '#' + c) {
+                                alert(c);
+                            }
+                        }, 5000);
                     } catch(e) {
                         console.log(e);
                     }
                 }
+                clickCount++;
                 color = '#' + c;
 
                 $('.paintable').each(function(index, el) {
