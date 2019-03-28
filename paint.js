@@ -6,7 +6,6 @@
 function Render(svgText, c) {
     $('#container').empty().append($(svgText));
     // 点击颜色显示色值的隐藏提示
-    var counting = false;
     var clickCount = 0;
 
     var svgRatio = 87 / 150;
@@ -253,14 +252,14 @@ function Render(svgText, c) {
             $(ele).find('.check').attr('fill', '#' + c);
             var colorProgress = progress[c];
 
-            ele.addEventListener('click', function() {
+            // 5s内点击10次显示色值
+            ele.addEventListener('touchstart', function() {
                 if(c !== color.slice(1)) {
                     try {
-                        window.webkit.messageHandlers.ChangeColor.postMessage('#' + c);
                         clickCount = 0;
                         setTimeout(function() {
-                            if (clickCount > 10 && color === '#' + c) {
-                                alert(c);
+                            if (clickCount > 10) {
+                                alert(color);
                             }
                         }, 5000);
                     } catch(e) {
@@ -268,6 +267,16 @@ function Render(svgText, c) {
                     }
                 }
                 clickCount++;
+            });
+
+            ele.addEventListener('click', function() {
+                if(c !== color.slice(1)) {
+                    try {
+                        window.webkit.messageHandlers.ChangeColor.postMessage('#' + c);
+                    } catch(e) {
+                        console.log(e);
+                    }
+                }
                 color = '#' + c;
 
                 $('.paintable').each(function(index, el) {
