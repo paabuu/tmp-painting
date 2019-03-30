@@ -32,6 +32,25 @@ function Render(svgText, c) {
             var selectedColor = progress[color.slice(1)];
             selectedColor.now += 1;
 
+            // 保存进度
+            var clone = $('#container svg').clone();
+            // 原始缩放比例
+            clone.css('transform', 'matrix(1, 0, 0, 1, 0, 0)').css('transform-origin', '50% 50%');
+            // 清除未涂完的高亮色
+            clone.find('.paintable').each(function(i, el) {
+                if($(this).attr('fill') == HIGHLIGHT_COLOR) {
+                    $(this).attr('fill', 'white');
+                }
+            });
+            clone.removeAttr('height');
+            var div = document.createElement('div');
+            $(div).append(clone);
+            try {
+                window.webkit.messageHandlers.UpdateSvg.postMessage($(div).html());
+            } catch (e) {
+                console.log(e);
+            }
+
             // 单个颜色完成
             if(selectedColor.now >= selectedColor.all) {
                 $('.brush-' + color.slice(1)).addClass('brush-finished');
@@ -51,25 +70,6 @@ function Render(svgText, c) {
                 } catch (e) {
                     console.log(e);
                 }
-            }
-
-            // 保存进度
-            var clone = $('#container svg').clone();
-            // 原始缩放比例
-            clone.css('transform', 'matrix(1, 0, 0, 1, 0, 0)').css('transform-origin', '50% 50%');
-            // 清除未涂完的高亮色
-            clone.find('.paintable').each(function(i, el) {
-                if($(this).attr('fill') == HIGHLIGHT_COLOR) {
-                    $(this).attr('fill', 'white');
-                }
-            });
-            clone.removeAttr('height');
-            var div = document.createElement('div');
-            $(div).append(clone);
-            try {
-                window.webkit.messageHandlers.UpdateSvg.postMessage($(div).html());
-            } catch (e) {
-                console.log(e);
             }
         });
     });
