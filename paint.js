@@ -320,8 +320,7 @@ window.onload = function() {
     });
 };
 
-// Render(
-//     window.localStorage.getItem('svg'),
-//     ["C7a480", "7B5733", "ebcC9e", "8B8f78", "Bbc8b5", "cf8f57", "fef6e3", "be5937", "4d3116", "cec26d", "a8b5a0", "b18967", "c4b99d", "927f6f", "706a4c", "ddc58a", "b77044", "a3917d", "d6d5c1", "b4a38f"],
-//     'The Fool'
-// )
+Render(
+    window.SVG,
+    ["a3917d", "928274", "ddc58a", "b77044", "7b5733", "f3cc99", "d6d5c1", "918174", "706a4c", "b18967", "8d7a71", "c7ca72", "b0b985", "8b8f78", "cf8f57", "c7a480", "fef6e3", "a8b5a0", "99826a", "d5bb68", "e7d1aa", "c7a481", "e8c998", "be5937", "b1ba86", "c1cebc", "b4a38f", "c4b99d", "b6c2ae", "4d3116"],
+)
