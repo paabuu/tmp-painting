@@ -5,7 +5,8 @@
  */
 function Render(svgText, c) {
     $('#container').empty().append($(svgText));
-    var svgRatio = 87 / 150;
+    // var svgRatio = 87 / 150;
+    var svgRatio = 1;
     var h = $('#container').height() * 0.8;
     var w = h * svgRatio;
     var color = 'white';
@@ -322,5 +323,5 @@ window.onload = function() {
 
 Render(
     window.SVG,
-    ["a3917d", "928274", "ddc58a", "b77044", "7b5733", "f3cc99", "d6d5c1", "918174", "706a4c", "b18967", "8d7a71", "c7ca72", "b0b985", "8b8f78", "cf8f57", "c7a480", "fef6e3", "a8b5a0", "99826a", "d5bb68", "e7d1aa", "c7a481", "e8c998", "be5937", "b1ba86", "c1cebc", "b4a38f", "c4b99d", "b6c2ae", "4d3116"],
+    ["ffc543", "7e1d27", "b21a43", "f1222e", "ff909f", "97b5ff", "ffd666", "b8ffe9", "58c1d6", "a84298", "74ca0d", "b1edc1", "ffc3c3", "f98f15", "ddf486", "52c487", "fbed11", "f8909f"]
 )
